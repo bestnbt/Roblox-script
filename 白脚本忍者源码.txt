@@ -1,0 +1,241 @@
+local bai={
+    antohuidao=false,
+    automaidao=false,
+    kuaisumaiqi=false,
+    kuaisumaibao=false,
+    zidonxiqi=false,
+    autobuyranks=false,
+    autobuuyjineng=false
+}
+local bailib = loadstring(game:HttpGet"https://pastebin.com/raw/DW3eJwe6")()
+local win = bailib:new("白脚本--忍者传奇")
+local Tab = win:Tab("主要功能", "10882439086")
+local Section = Tab:section("自动功能")
+local Section1 = Tab:section("其他功能")
+
+Section:Toggle("自动挥刀",'Toggleflag',false, function(state)
+    if state then
+       bai.antohuidao=true
+       while wait() do
+       if bai.antohuidao==true
+       then
+       
+        if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+            if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then 
+                game.Players.LocalPlayer.ninjaEvent:FireServer("swingKatana")
+            else
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+                    if v.ClassName == "Tool" and v:FindFirstChild("attackShurikenScript") then 
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+					end
+                        if v.ClassName == "Tool" and v:FindFirstChild("attackKatanaScript") then 
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)                            
+                        end
+                end
+            end
+        end
+        
+            
+        end
+       end
+    else
+        bai.antohuidao=false
+    end
+end)
+Section:Toggle("自动买刀",'Toggleflag',false, function(state)
+    if state then
+        bai.automaidao=true
+        while  wait(0.5) do 
+            if bai.automaidao==true then
+                if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+					local oh1 = "buyAllSwords"
+					local oh2 = {"Ground", "Astral Island", "Space Island","Tundra Island", "Eternal Island", "Sandstorm", "Thunderstorm", "Ancient Inferno Island", "Midnight Shadow Island", "Mythical Souls Island", "Winter Wonder Island"}
+					for i = 1,#oh2 do
+						game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(oh1, oh2[i])
+					end
+				end   
+        end
+        
+            
+        end
+    else
+        bai.automaidao=false
+    end
+end)
+Section:Toggle("自动卖气",'Toggleflag',false, function(state)
+    if state then
+        bai.kuaisumaiqi=true
+        while task.wait() do
+            if bai.kuaisumaiqi==true then
+                if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+					game.workspace.sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+					wait(.1)
+					game.workspace.sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = game.Workspace.Part.CFrame
+				end
+            end
+        end
+    else
+     bai.kuaisumaiqi=false
+    end
+end)
+Section:Toggle("自动买背包",'Toggleflag',false, function(state)
+    if state then
+        bai.kuaisumaibao=true
+        while task.wait() do
+            if bai.kuaisumaibao==true then
+                if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+					local oh1 = "buyAllBelts"
+					local oh2 = {"Ground", "Astral Island", "Space Island","Tundra Island", "Eternal Island", "Sandstorm", "Thunderstorm", "Ancient Inferno Island", "Midnight Shadow Island", "Mythical Souls Island", "Winter Wonder Island"}
+					for i = 1,#oh2 do
+						game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(oh1, oh2[i])
+					end
+				end
+            end
+        end
+    else
+     bai.kuaisumaibao=false
+    end
+end)
+Section:Toggle("自动吸气",'Toggleflag',false, function(state)
+    if state then
+       bai.zidonxiqi=true
+       while task.wait() do
+        if bai.zidonxiqi==true then
+            for i,v in pairs(game.Workspace.spawnedCoins.Valley:GetChildren()) do
+                if v.Name == "Blue Chi Crate" then 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
+                    wait()
+                end
+            end
+        end
+
+       end
+    else
+        bai.zidonxiqi=false
+    end
+end)
+Section:Toggle("自动买等级",'Toggleflag',false, function(state)
+    if state then
+      bai.autobuyranks=true
+      while wait(0.5) do
+        if bai.autobuyranks==true then
+            
+        
+        if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+            local oh1 = "buyRank"
+            local oh2 = game:GetService("ReplicatedStorage").Ranks.Ground:GetChildren()
+            for i = 1,#oh2 do
+            game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(oh1, oh2[i].Name)
+            end
+        end
+    end
+      end
+    else
+      bai.autobuyranks=false
+    end
+end)
+Section:Toggle("自动买技能",'Toggleflag',false, function(state)
+    if state then
+     bai.autobuuyjineng=true
+     while wait(0.5) do
+        
+        if bai.autobuuyjineng==true then
+            if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+                local oh1 = "buyAllSkills"
+                local oh2 = {"Ground", "Astral Island", "Space Island","Tundra Island", "Eternal Island", "Sandstorm", "Thunderstorm", "Ancient Inferno Island", "Midnight Shadow Island", "Mythical Souls Island", "Winter Wonder Island"}
+                for i = 1,#oh2 do
+                game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(oh1, oh2[i])
+                end
+                end
+                end
+        
+     end
+    else
+        bai.autobuuyjineng=false
+    end
+end)
+Section1:Button("最大跳跃", function()
+    game.Players.LocalPlayer.multiJumpCount.Value = "50"
+end)
+Section1:Button("解锁所有岛屿",function()
+    for i,v in next, game.workspace.islandUnlockParts:GetChildren() do 
+        if v then 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.islandSignPart.CFrame -Vector3.new(0,80, 0)
+           wait(0.5)
+        end
+    end
+end)
+Section1:Button("收集所有宝箱",function()
+    game:GetService("Workspace").mythicalChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").goldenChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").enchantedChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").magmaChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").legendsChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").eternalChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").saharaChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").thunderChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").ancientChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").midnightShadowChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").groupRewardsCircle["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace")["Daily Chest"].circleInner.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace")["wonderChest"].circleInner.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		wait(3.5)
+		game:GetService("Workspace").wonderChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		game:GetService("Workspace").midnightShadowChest["circleInner"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		game:GetService("Workspace").ancientChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").midnightShadowChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").thunderChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").saharaChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").eternalChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").legendsChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").magmaChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").enchantedChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").goldenChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").mythicalChest["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace").groupRewardsCircle["circleInner"].CFrame = game.Workspace.Part.CFrame
+		game:GetService("Workspace")["Daily Chest"].circleInner.CFrame = game.Workspace.Part.CFrame
+end)
+Section1:Button("杀死所有人",function()
+               for i,v in pairs(game.Players:GetChildren()) do
+            	if v.Name~=game.Players.LocalPlayer then
+            		 for i=1,50 do
+            		 	            		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=v.Character.HumanoidRootPart.CFrame+ Vector3.new(0, .4, 2)
+            		 	
+            		 		task.wait()
+            		  if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+            if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then 
+                game.Players.LocalPlayer.ninjaEvent:FireServer("swingKatana")
+            else
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+                    if v.ClassName == "Tool" and v:FindFirstChild("attackShurikenScript") then 
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+					end
+                        if v.ClassName == "Tool" and v:FindFirstChild("attackKatanaScript") then 
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)                            
+                        end
+                end
+               end
+     
+        
+            
+       
+				end
+			end
+		end
+	
+			
+			end
+   
+end)

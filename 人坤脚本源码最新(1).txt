@@ -1,0 +1,263 @@
+local ScreenGui = Instance.new("ScreenGui")
+local UI = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Frame = Instance.new("Frame")
+local Key = Instance.new("TextBox")
+local Start = Instance.new("TextButton")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+UI.Name = "人坤卡密系统"
+UI.Parent = ScreenGui
+UI.Active = true
+UI.BackgroundColor3 = Color3.new(0, 0, 0)
+UI.BackgroundTransparency = 0
+UI.BorderSizePixel = 3
+UI.Position = UDim2.new(0.5, -150, 0.5, -67)
+UI.Size = UDim2.new(0, 260, 0, 250)
+UI.Draggable = true
+
+Title.Name = "Title"
+Title.Parent = UI
+Title.BackgroundColor3 = Color3.new(68, 68, 68)
+Title.BackgroundTransparency = 1
+Title.BorderSizePixel = 2
+Title.Position = UDim2.new(0, 0, 0.02, 0)
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "人坤密钥系统"
+Title.TextColor3 = Color3.new(0, 0, 255)
+Title.TextScaled = true
+Title.TextSize = 14
+Title.TextWrapped = true
+
+Frame.Parent = Title
+Frame.BackgroundColor3 = Color3.new(0, 0, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.07, 0, 0.9, 0)
+Frame.Size = UDim2.new(0.85, 0, 0, 6)
+
+Key.Name = "Key"
+Key.Parent = UI
+Key.BackgroundColor3 = Color3.new(1, 1, 1)
+Key.BorderSizePixel = 0
+Key.Position = UDim2.new(0.1, 0, 0.31, 0)
+Key.Size = UDim2.new(0.8, 0, 0, 50)
+Key.Font = Enum.Font.SourceSans
+Key.PlaceholderText = "输入密钥"
+Key.Text = ""
+Key.TextColor3 = Color3.new(0, 0, 0)
+Key.TextScaled = true
+Key.TextSize = 14
+Key.TextWrapped = true
+
+Start.Name = "Start"
+Start.Parent = UI
+Start.BackgroundColor3 = Color3.new(0, 0, 255)
+Start.BackgroundTransparency = 0
+Start.BorderSizePixel = 2
+Start.Position = UDim2.new(0.25, 0, 0.65, 0)
+Start.Size = UDim2.new(0.5, 0, 0, 45)
+Start.Font = Enum.Font.Gotham
+Start.Text = "检查密钥"
+Start.TextColor3 = Color3.new(0, 0, 0)
+Start.TextScaled = true
+Start.TextSize = 10
+Start.TextWrapped = true
+
+Start.MouseButton1Click:Connect(function()
+    if Key.Text == "114514" then
+        ScreenGui:Destroy()
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/xLRUSiKx"))()
+local LBLG = Instance.new("ScreenGui", getParent)
+local LBL = Instance.new("TextLabel", getParent)
+local player = game.Players.LocalPlayer
+
+LBLG.Name = "LBLG"
+LBLG.Parent = game.CoreGui
+LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LBLG.Enabled = true
+LBL.Name = "LBL"
+LBL.Parent = LBLG
+LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+LBL.BackgroundTransparency = 1
+LBL.BorderColor3 = Color3.new(0, 0, 0)
+LBL.Position = UDim2.new(0.75,0,0.010,0)
+LBL.Size = UDim2.new(0, 133, 0, 30)
+LBL.Font = Enum.Font.GothamSemibold
+LBL.Text = "TextLabel"
+LBL.TextColor3 = Color3.new(1, 1, 1)
+LBL.TextScaled = true
+LBL.TextSize = 14
+LBL.TextWrapped = true
+LBL.Visible = true
+
+local FpsLabel = LBL
+local Heartbeat = game:GetService("RunService").Heartbeat
+local LastIteration, Start
+local FrameUpdateTable = { }
+
+local function HeartbeatUpdate()
+	LastIteration = tick()
+	for Index = #FrameUpdateTable, 1, -1 do
+		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+	end
+	FrameUpdateTable[1] = LastIteration
+	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+	CurrentFPS = CurrentFPS - CurrentFPS % 1
+	FpsLabel.Text = ("北坤时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+end
+Start = tick()
+Heartbeat:Connect(HeartbeatUpdate)
+local Window = OrionLib:MakeWindow({Name = "人坤脚本", HidePremium = false, SaveConfig = true,IntroText = "人坤脚本", ConfigFolder = "人坤脚本"})
+
+local about = Window:MakeTab({
+    Name = "人坤制作",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+about:AddParagraph("该人坤为开发版，永久免费")
+about:AddParagraph("脚本免费脚本,圈钱哥请勿圈钱!")
+about:AddParagraph("QQ群")
+OrionLib:MakeNotification({
+	Name = "人坤脚本",
+	Content = "欢迎使用人坤脚本",
+	Image = "rbxassetid://4483345998",
+	Time = 2
+})
+
+local Tab = Window:MakeTab({
+	Name = "人坤",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "飞行",
+	Callback = function()
+      	loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+  	end    
+})
+
+local About = Window:MakeTab({
+  Name = "修改",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+About:AddTextbox({
+  Name = "移动速度",
+  Default = "",
+  TextDisappear = true,
+  Callback = function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+  end
+})
+ 
+About:AddTextbox({
+  Name = "跳跃高度",
+  Default = "",
+  TextDisappear = true,
+  Callback = function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+  end
+})
+ 
+About:AddTextbox({
+  Name = "重力",
+  Default = "",
+  TextDisappear = true,
+  Callback = function(Value)
+    game.Workspace.Gravity = Value
+  end
+})
+
+local Tab = Window:MakeTab({
+    Name = "十字架/道具",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+  Name = "门绘图显示",
+  Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/cbhlyy/lyycbh/main/doors1"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "DOORS低回拉穿墙",
+  Callback = function()
+    loadstring(game:HttpGet("https://github.com/DXuwu/OK/raw/main/clip"))()
+  end
+})
+
+local Tab = Window:MakeTab({
+    Name = "脚本",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "DOORS变身脚本",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAccelerator/Public-Scripts/main/Morphing/MorphScript.lua"))();
+end
+})
+
+Tab:AddButton({
+  Name = "MSDOORS2.4(生肉)",
+  Callback = function()
+    loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\103\101\109\120\72\119\65\49"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "磁铁",
+  Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MrNeRD0/Doors-Hack/main/MagnetByNerd.lua"))()
+  end
+})
+
+Tab:AddButton({
+  Name = "刷怪菜单(别人的，因为我没有压缩脚本)",
+  Callback = function ()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/cbhlyy/lyycbh/main/shuaguai"))()
+  end
+})
+
+Tab:AddButton({
+	Name = "食用的doors脚本(生肉)",
+	Callback = function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/zoophiliaphobic/POOPDOORS/main/script.lua'))()
+end
+})
+
+Tab:AddButton({
+	Name = "doos超级汉化脚本(搬运)",
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaoYunCN/EntitySpawner/main/doors(orionlib).lua"))()
+end
+})
+
+local About = Window:MakeTab({
+  Name = "其他",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "",
+	Callback = function()
+脚本
+end
+})
+
+
+
+OrionLib:Init()
+    else
+        game.Players.LocalPlayer:Kick("请去加QQ3206672621")
+    end
+end)
