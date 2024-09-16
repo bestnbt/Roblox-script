@@ -1,5 +1,4 @@
- --//盗陈源码😡//--
-local CoreGui = game:GetService("StarterGui")
+ local CoreGui = game:GetService("StarterGui")
 
 CoreGui:SetCore("SendNotification", {
     Title = "确认身份",
@@ -11,11 +10,11 @@ local a=tostring(game.Players.LocalPlayer.Character);
 
 if a=="useranewrff"then
 _G.she=true
-elseif a=="lovhkun"then
+elseif a=="GBcasn"then
 _G.she=true
-elseif a=="xiaochenbz"then
+elseif a=="acejiiu"then
 _G.she=true
-elseif a=="qwert111treyheh"then
+elseif a=="all"then
 _G.she=true
 elseif a=="useranewrffl"then
 _G.she=true
@@ -4929,12 +4928,12 @@ Tab:AddButton({
   wait(3) --等待三秒
   --你的脚本
     else --验证失败执行↓
-setclipboard("哈哈没有")
+setclipboard("你不会看一下脚本源码吗")
 local CoreGui = game:GetService("StarterGui")
 
 CoreGui:SetCore("SendNotification", {
-    Title = "验证失败",
-    Text = "你并没有白名单其实没有链接，因为你没玩元神",
+    Title = "看看",
+    Text = "GITHUB.ME.请添加白名单",
     Duration = 10, --时间
 })
 end
