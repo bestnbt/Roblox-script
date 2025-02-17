@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/monkeyprisonlife/monkey-prison-life/refs/heads/main/monkey%20prison%20life"))()
